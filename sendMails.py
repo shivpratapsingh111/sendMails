@@ -19,7 +19,7 @@ SENDER_PASSWORD = "your_password"      # Replace with your Gmail app password
 SUCCESS_LOG = "email_success.log"
 FAILURE_LOG = "email_failure.log"
 
-EMAIL_PREFIX = "washere@"
+EMAIL_PREFIX = "security@"
 
 # Function to clean and extract domain from URLs
 def extract_domain(url):
