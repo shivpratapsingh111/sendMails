@@ -2,6 +2,7 @@ import smtplib
 import ssl
 import argparse
 import re
+import time
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
@@ -32,7 +33,7 @@ def extract_domain(url):
 def send_email(domain):
     receiver_email = f"{EMAIL_PREFIX}{domain}"
     message = MIMEMultipart("alternative")
-    message["Subject"] = "Inquiry about Bug Bounty Program"
+    message["Subject"] = "Hey! Do You Pay for Bug Reports?"
     message["From"] = SENDER_EMAIL
     message["To"] = receiver_email
 
@@ -100,6 +101,7 @@ def main():
 
     with open(args.file, "r") as file:
         for line in file:
+            time.sleep(10)
             domain = extract_domain(line.strip())
             if domain and f"{EMAIL_PREFIX}{domain}" not in processed_domains:
                 print(f"Sending email to: {EMAIL_PREFIX}{domain}")
